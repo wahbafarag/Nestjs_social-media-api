@@ -3,6 +3,7 @@
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
@@ -58,16 +59,18 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+```
+auth : local , jwt
+posts : like , dislike , comment , save , share
+users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
+comments : add , edit , delete , like and dislike others comments
+me : profile , edit profile , change password , delete account forever , activate and deactivate account for period of
+time
+image uploads : profile (lets see if i can do it for posts and comments too or not)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- will try to add messages and notifications later 'sockets'
+- mails : when new user register
 
-## Stay in touch
+LET'SSSSSSSSSSSSSSSSSSSSSSSS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+```
