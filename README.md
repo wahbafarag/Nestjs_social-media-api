@@ -61,7 +61,7 @@ $ npm run test:cov
 
 ## What iam trying to do
 
-````
+```
 - auth : local , jwt
 - posts : like , dislike , comment , save , share
 - users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
