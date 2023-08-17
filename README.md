@@ -59,6 +59,8 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## What iam trying to do
+
 ```
 auth : local , jwt
 posts : like , dislike , comment , save , share
