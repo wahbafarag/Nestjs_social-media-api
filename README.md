@@ -23,9 +23,22 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## What iam trying to do
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+```
+- auth : local , jwt
+- posts : like , dislike , comment , save , share
+- users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
+- comments : add , edit , delete , like and dislike others comments
+- me : profile , edit profile , change password , delete account forever , activate and 
+    deactivate account for period of time
+- image uploads : profile (lets see if i can do it for posts and comments too or not)
+
+- will try to add messages and notifications later 'sockets'
+- mails : when new user register
+
+LET'SSSSSSSSSSSSSSSSSSSSSSSS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+```
 
 ## Installation
 
@@ -57,21 +70,4 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
-```
-
-## What iam trying to do
-
-```
-- auth : local , jwt
-- posts : like , dislike , comment , save , share
-- users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
-- comments : add , edit , delete , like and dislike others comments
-- me : profile , edit profile , change password , delete account forever , activate and 
-    deactivate account for period of time
-- image uploads : profile (lets see if i can do it for posts and comments too or not)
-
-- will try to add messages and notifications later 'sockets'
-- mails : when new user register
-
-LET'SSSSSSSSSSSSSSSSSSSSSSSS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 ```
