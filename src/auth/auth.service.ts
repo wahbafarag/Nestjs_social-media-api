@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from '../users/users.service';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
-import { ErrorCodes } from '../contants/error-codes';
+import { ErrorCodes } from '../constants/error-codes';
 import {
   LoginPayloadWithEmail,
   LoginPayloadWithUsername,

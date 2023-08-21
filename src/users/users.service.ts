@@ -7,7 +7,7 @@ import { UsersRepository } from './user.repository';
 import { User } from './schemas/users.schema';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
-import { ErrorCodes } from '../contants/error-codes';
+import { ErrorCodes } from '../constants/error-codes';
 
 @Injectable()
 export class UsersService {

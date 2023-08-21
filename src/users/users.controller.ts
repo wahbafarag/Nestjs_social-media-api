@@ -12,8 +12,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { ParseIdPipe } from '../contants/parse-id.pipe';
-import { ErrorCodes } from '../contants/error-codes';
+import { ParseIdPipe } from '../constants/parse-id.pipe';
+import { ErrorCodes } from '../constants/error-codes';
 import { User, UserRoles } from './schemas/users.schema';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { Public } from '../auth/decorators/public.decorator';
