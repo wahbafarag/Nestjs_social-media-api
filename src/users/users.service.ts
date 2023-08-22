@@ -8,6 +8,7 @@ import { User } from './schemas/users.schema';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { ErrorCodes } from '../constants/error-codes';
+import { ChangeUserActiveStatusDtoParam } from './dtos/change-user-active-status.dto';
 
 @Injectable()
 export class UsersService {
@@ -58,5 +59,14 @@ export class UsersService {
     const user = await this.usersRepository.Update({ username }, userInfo);
     if (!user) throw new NotFoundException(ErrorCodes.USER_NOT_FOUND);
     return user;
+  }
+
+  async changeUserIsActiveStatus(
+    id: ChangeUserActiveStatusDtoParam,
+    isActive: boolean,
+  ) {
+    if (!id) throw new BadRequestException(ErrorCodes.UNAUTHORIZED);
+
+    return await this.usersRepository.Update({ _id: id }, { isActive });
   }
 }

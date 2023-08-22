@@ -80,7 +80,7 @@ export const ErrorCodes = {
 
   USER_ACTIVATED: {
     code: 'USER_ACTIVATED',
-    message: 'You activated your account ,Welcome back Boy',
+    message: 'Welcome back! , You activated your account and now you can login',
   },
 
   // USER_IS_DELETED: {

@@ -8,6 +8,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
@@ -21,6 +22,10 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UpdateUserDto } from './dtos/update-user.dto';
+import {
+  ChangeUserActiveStatusDtoBody,
+  ChangeUserActiveStatusDtoParam,
+} from './dtos/change-user-active-status.dto';
 
 @Controller('users')
 export class UsersController {
@@ -123,5 +128,18 @@ export class UsersController {
     if (!user) throw new UnauthorizedException(ErrorCodes.UNAUTHORIZED);
     const { username } = user;
     return this.usersService.findByUsername(username);
+  }
+
+  @Put(':id/active-status')
+  @HttpCode(HttpStatus.OK)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(UserRoles.USER)
+  async changeActiveStatus(
+    @Body() body: ChangeUserActiveStatusDtoBody,
+    @Param('id', ParseIdPipe) id: ChangeUserActiveStatusDtoParam,
+  ) {
+    await this.usersService.changeUserIsActiveStatus(id, body.isActive);
+    if (body.isActive === true) return ErrorCodes.USER_ACTIVATED;
+    return ErrorCodes.USER_DEACTIVATED;
   }
 }
