@@ -62,7 +62,14 @@ export class User {
 
   @Prop({ type: Boolean, default: true })
   isActive: boolean; // deactivate the user for a period of time ,  activate it again
+
+  @Prop({ type: String })
+  passwordResetToken: string;
+
+  @Prop({ type: Date })
+  passwordResetExpires: Date;
 }
 
 export const userSchema = SchemaFactory.createForClass(User);
 userSchema.index({ email: 1, username: 1, phone: 1 }, { unique: true });
+userSchema.methods.createPasswordResetToken = function () {};

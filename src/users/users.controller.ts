@@ -2,15 +2,18 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
+  InternalServerErrorException,
   Param,
   Patch,
   Post,
   Put,
   UnauthorizedException,
   UseGuards,
+  ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ParseIdPipe } from '../constants/parse-id.pipe';
@@ -26,6 +29,8 @@ import {
   ChangeUserActiveStatusDtoBody,
   ChangeUserActiveStatusDtoParam,
 } from './dtos/change-user-active-status.dto';
+import { PasswordResetBodyDto } from './dtos/password-reset-body.dto';
+import { ResetPasswordDto } from './dtos/reset-password.dto';
 
 @Controller('users')
 export class UsersController {
@@ -141,5 +146,36 @@ export class UsersController {
     await this.usersService.changeUserIsActiveStatus(id, body.isActive);
     if (body.isActive === true) return ErrorCodes.USER_ACTIVATED;
     return ErrorCodes.USER_DEACTIVATED;
+  }
+
+  @Post('password/forgot')
+  @HttpCode(HttpStatus.OK)
+  @Public()
+  async forgotPassword(@Body(ValidationPipe) payload: PasswordResetBodyDto) {
+    const { email } = payload;
+    return await this.usersService.forgotPassword(email);
+  }
+
+  @Post('password/reset')
+  @HttpCode(HttpStatus.OK)
+  @Public()
+  async resetPassword(@Body(ValidationPipe) payload: ResetPasswordDto) {
+    return await this.usersService.resetPassword(payload);
+  }
+
+  @Delete('profiles/delete-me')
+  @HttpCode(HttpStatus.OK)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(UserRoles.USER)
+  async deleteProfile(
+    @CurrentUser() user: User,
+    @Body(ValidationPipe) body: PasswordResetBodyDto,
+  ) {
+    if (!user) throw new UnauthorizedException(ErrorCodes.UNAUTHORIZED);
+    const { email } = user;
+    if (user.email !== body.email)
+      throw new BadRequestException(ErrorCodes.INVALID_DELETE_REQUEST);
+    if (await this.usersService.delete(email)) return ErrorCodes.USER_DELETED;
+    throw new InternalServerErrorException(ErrorCodes.UNEXPECTED_ERROR);
   }
 }

@@ -43,7 +43,8 @@ export const ErrorCodes = {
 
   USER_NOT_FOUND: {
     code: 'USER_NOT_FOUND',
-    message: 'User not found ',
+    message:
+      'User not found , make sure that you are providing the right values',
   },
 
   // both wrong password or email
@@ -56,11 +57,6 @@ export const ErrorCodes = {
     code: 'INVALID_TOKEN',
     message: 'Invalid token',
   },
-
-  // TOKEN_EXPIRED: {
-  //   code: 'TOKEN_EXPIRED',
-  //   message: 'Token expired',
-  // },
 
   INVALID_REQUEST: {
     code: 'INVALID_REQUEST',
@@ -83,11 +79,6 @@ export const ErrorCodes = {
     message: 'Welcome back! , You activated your account and now you can login',
   },
 
-  // USER_IS_DELETED: {
-  //   code: 'USER_IS_DELETED',
-  //   message: 'This Account is permanently deleted ',
-  // },
-
   USER_DELETED: {
     code: 'USER_DELETED',
     message: 'You deleted your account Successfully,Sorry to see you go',
@@ -102,5 +93,21 @@ export const ErrorCodes = {
   UNSUPPORTED_ACTION: {
     code: 'UNSUPPORTED_ACTION',
     message: 'You are allowed to change your profile info not your passwords',
+  },
+
+  EXPIRED_TOKEN: {
+    code: 'EXPIRED_TOKEN',
+    message: 'Token expired ,We sent you a new one , Please check your email',
+  },
+
+  PASSWORD_UPDATED: {
+    code: 'PASSWORD_UPDATED',
+    message:
+      'Password updated successfully,Please login again with the new password',
+  },
+
+  INVALID_DELETE_REQUEST: {
+    code: 'INVALID_DELETE_REQUEST',
+    message: 'Invalid Email ,please enter valid data and try again',
   },
 };

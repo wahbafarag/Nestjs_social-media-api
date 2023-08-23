@@ -68,6 +68,8 @@ export class AuthService {
     }
 
     user.password = undefined;
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
     return { token: await signToken(user, this.jwtService), user };
   }
 
@@ -88,11 +90,9 @@ export class AuthService {
       throw new BadRequestException(ErrorCodes.INVALID_CREDENTIALS);
     }
     user.password = undefined;
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
     const token = await signToken(user, this.jwtService);
     return { token, user };
-  }
-
-  async findOne(email: any) {
-    return await this.usersService.findByEmail(email);
   }
 }
