@@ -1,4 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
+import { Post } from '../../posts/schemas/post.schema';
 
 export enum UserRoles {
   USER = 'user',
@@ -68,6 +70,9 @@ export class User {
 
   @Prop({ type: Date })
   passwordResetExpires: Date;
+
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] })
+  posts: Post[];
 }
 
 export const userSchema = SchemaFactory.createForClass(User);
