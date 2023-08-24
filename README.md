@@ -26,7 +26,7 @@
 ## What iam trying to do
 
 ```
-- auth : local , jwt
+- auth : local , jwt (Done)
 - posts : like , dislike , comment , save , share
 - users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
 - comments : add , edit , delete , like and dislike others comments
