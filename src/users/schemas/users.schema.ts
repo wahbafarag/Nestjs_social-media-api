@@ -71,8 +71,17 @@ export class User {
   @Prop({ type: Date })
   passwordResetExpires: Date;
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }] })
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+    default: [],
+  })
   posts: Post[];
+
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+    default: [],
+  })
+  savedPosts: Post[];
 }
 
 export const userSchema = SchemaFactory.createForClass(User);
