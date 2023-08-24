@@ -110,4 +110,15 @@ export const ErrorCodes = {
     code: 'INVALID_DELETE_REQUEST',
     message: 'Invalid Email ,please enter valid data and try again',
   },
+
+  USER_VERIFIED: {
+    code: 'USER_VERIFIED',
+    message: 'User verified successfully , Please login',
+  },
+
+  VERIFY_AFTER_REGISTER: {
+    code: 'VERIFY_AFTER_REGISTER',
+    message:
+      'Account created successfully ,Inorder to use out platform Please verify your email',
+  },
 };

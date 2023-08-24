@@ -8,6 +8,7 @@ import { MailModule } from './mail/mail.module';
 import * as process from 'process';
 import { ConfigModule } from '@nestjs/config';
 import { OtpModule } from './otp/otp.module';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { OtpModule } from './otp/otp.module';
     AuthModule,
     MailModule,
     OtpModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

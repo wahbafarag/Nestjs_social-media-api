@@ -15,6 +15,7 @@ import { OtpService } from '../otp/otp.service';
 import { MomentFormatEnum } from '../otp/constants/moment-format.enum';
 import { MailService } from '../mail/mail.service';
 import { ResetPasswordDto } from './dtos/reset-password.dto';
+import { VerifyUserDto } from './dtos/verify-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -29,27 +30,19 @@ export class UsersService {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const doc = await this.usersRepository.FindOne({ email });
-    if (!doc) throw new NotFoundException(ErrorCodes.USER_NOT_FOUND);
-    return doc;
+    return await this.usersRepository.FindOne({ email });
   }
 
   async findByUsername(username: string): Promise<User> {
-    const doc = await this.usersRepository.FindOne({ username });
-    if (!doc) throw new NotFoundException(ErrorCodes.USER_NOT_FOUND);
-    return doc;
+    return await this.usersRepository.FindOne({ username });
   }
 
   async findById(id: string): Promise<User> {
-    const doc = await this.usersRepository.FindOne({ _id: id });
-    if (!doc) throw new NotFoundException(ErrorCodes.USER_NOT_FOUND);
-    return doc;
+    return await this.usersRepository.FindOne({ _id: id });
   }
 
   async findByPhoneNumber(phone: string): Promise<User> {
-    const doc = await this.usersRepository.FindOne({ phone });
-    if (!doc) throw new NotFoundException(ErrorCodes.USER_NOT_FOUND);
-    return doc;
+    return await this.usersRepository.FindOne({ phone });
   }
 
   async updateById(id: string, userInfo: UpdateUserDto): Promise<User> {
@@ -172,5 +165,23 @@ export class UsersService {
 
   async delete(email: string) {
     return await this.usersRepository.Delete({ email });
+  }
+
+  async verifyUser(payload: VerifyUserDto) {
+    const user = await this.usersRepository.FindOne({ email: payload.email });
+    if (!user) throw new BadRequestException(ErrorCodes.USER_NOT_FOUND);
+    if (
+      await this.usersRepository.Update(
+        { email: payload.email },
+        {
+          isVerified: true,
+          isActive: true,
+        },
+      )
+    ) {
+      return ErrorCodes.USER_VERIFIED;
+    } else {
+      throw new InternalServerErrorException(ErrorCodes.UNEXPECTED_ERROR);
+    }
   }
 }

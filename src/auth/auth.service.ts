@@ -9,12 +9,14 @@ import {
 } from './dtos/login-payload.dto';
 import { JwtService } from '@nestjs/jwt';
 import { signToken } from '../helpers/sign-token';
+import { MailService } from '../mail/mail.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,
+    private readonly mailService: MailService,
   ) {}
 
   async signup(userInfo: CreateUserDto) {
@@ -47,7 +49,10 @@ export class AuthService {
     const user = await this.usersService.create(userInfo);
     const token = await signToken(user, this.jwtService);
 
-    return { token, user };
+    // return { token, user };
+
+    await this.mailService.sendVerifyEmail({ email });
+    return ErrorCodes.VERIFY_AFTER_REGISTER;
   }
 
   async loginWithUsername(payload: LoginPayloadWithUsername) {

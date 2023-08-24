@@ -57,10 +57,10 @@ export class User {
   })
   role: UserRoles;
 
-  // @Prop({ type: Boolean, default: false })
-  // isDeleted: boolean; // delete it permanently , user no longer exists
+  @Prop({ type: Boolean, default: false })
+  isVerified: boolean;
 
-  @Prop({ type: Boolean, default: true })
+  @Prop({ type: Boolean, default: false })
   isActive: boolean; // deactivate the user for a period of time ,  activate it again
 
   @Prop({ type: String })

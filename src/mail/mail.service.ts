@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import * as SendGrid from '@sendgrid/mail';
 import { ResetPasswordInterface } from './interfaces/reset.password.interface';
 import * as process from 'process';
+import { VerifyUserDto } from '../users/dtos/verify-user.dto';
 
 @Injectable()
 export class MailService {
@@ -28,6 +29,22 @@ export class MailService {
         subject: 'Your Password Reset Token is Here',
         name: payload.name,
         token: payload.token,
+      },
+    };
+
+    await this.send(mailData);
+  }
+
+  async sendVerifyEmail(payload: VerifyUserDto) {
+    const urlPath = 'http://localhost:3000/auth/verify';
+    const mailData = {
+      to: payload.email,
+      from: process.env.SENDGRID_FROM,
+      templateId: process.env.WELCOME_EMAIL_TEMPLATE_ID,
+      dynamic_template_data: {
+        url: `${urlPath}&Email=${payload.email}&type=verify`,
+        subject: 'Your Email Verification url is Here',
+        email: payload.email,
       },
     };
 

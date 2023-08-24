@@ -31,6 +31,7 @@ import {
 } from './dtos/change-user-active-status.dto';
 import { PasswordResetBodyDto } from './dtos/password-reset-body.dto';
 import { ResetPasswordDto } from './dtos/reset-password.dto';
+import { VerifyUserDto } from './dtos/verify-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -161,6 +162,13 @@ export class UsersController {
   @Public()
   async resetPassword(@Body(ValidationPipe) payload: ResetPasswordDto) {
     return await this.usersService.resetPassword(payload);
+  }
+
+  @Patch('verify')
+  @HttpCode(HttpStatus.OK)
+  @Public()
+  async verifyUser(@Body(ValidationPipe) payload: VerifyUserDto) {
+    return await this.usersService.verifyUser(payload);
   }
 
   @Delete('profiles/delete-me')
