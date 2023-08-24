@@ -35,7 +35,7 @@
 - image uploads : profile (lets see if i can do it for posts and comments too or not)
 
 - will try to add messages and notifications later 'sockets'
-- mails : when new user register
+- mails : when new user register "welcome & verification" , reset password process (done)
 
 LET'SSSSSSSSSSSSSSSSSSSSSSSS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 ```
