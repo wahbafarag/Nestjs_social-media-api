@@ -121,4 +121,13 @@ export const ErrorCodes = {
     message:
       'Account created successfully ,Inorder to use out platform Please verify your email',
   },
+
+  POST_SAVED: {
+    code: 'POST_SAVED',
+    message: 'Post saved successfully',
+  },
+  POST_UNSAVED: {
+    code: 'POST_UNSAVED',
+    message: 'Post unsaved successfully',
+  },
 };

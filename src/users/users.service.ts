@@ -61,6 +61,10 @@ export class UsersService {
     return user;
   }
 
+  async findOneAndUpdate(selector: any, action: any) {
+    return await this.usersRepository.Update(selector, action);
+  }
+
   async updateByUsername(
     username: string,
     userInfo: UpdateUserDto,

@@ -82,8 +82,11 @@ export class User {
     default: [],
   })
   savedPosts: Post[];
+
+  async save() {
+    await this.save();
+  }
 }
 
 export const userSchema = SchemaFactory.createForClass(User);
 userSchema.index({ email: 1, username: 1, phone: 1 }, { unique: true });
-userSchema.methods.createPasswordResetToken = function () {};

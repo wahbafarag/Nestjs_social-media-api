@@ -28,55 +28,77 @@ export class Post {
   @Prop({ type: Date })
   deletedAt?: Date;
 
-  // @Prop({ type: Number, default: 0 })
-  // likes?: number;
-  //
-  // @Prop({ type: Number, default: 0 })
-  // dislikes?: number;
+  @Prop({ type: Number, default: 0 })
+  sharesCount?: number;
 
-  // @Prop({ type: [String] })
-  // comments?: string[];
-  //
-  // @Prop({ type: Number, default: 0 })
-  // commentsCount?: number;
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    default: [],
+  })
+  whoShared?: Post[];
 
-  // @Prop({ type: Boolean, default: false })
-  // isDeleted?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isEdited?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isPinned?: boolean;
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    default: [],
+  })
+  whoLiked?: Post[];
 
-  //
+  @Prop({ type: Number, default: 0 })
+  likes?: number;
 
-  // @Prop({ type: Boolean, default: false })
-  // isReported?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isApproved?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isRejected?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isBlocked?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isBanned?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isSpam?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isVerified?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isHidden?: boolean;
-  //
-  // @Prop({ type: Boolean, default: false })
-  // isClosed?: boolean;
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    default: [],
+  })
+  whoDisliked?: Post[];
+
+  @Prop({ type: Number, default: 0 })
+  dislikes?: number;
 }
 
-export const PostSchema = SchemaFactory.createForClass(Post);
+export const postSchema = SchemaFactory.createForClass(Post);
+
+// @Prop({ type: [String] })
+// comments?: string[];
+//
+// @Prop({ type: Number, default: 0 })
+// commentsCount?: number;
+
+// @Prop({ type: Boolean, default: false })
+// isDeleted?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isEdited?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isPinned?: boolean;
+
+//
+
+// @Prop({ type: Boolean, default: false })
+// isReported?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isApproved?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isRejected?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isBlocked?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isBanned?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isSpam?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isVerified?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isHidden?: boolean;
+//
+// @Prop({ type: Boolean, default: false })
+// isClosed?: boolean;
+//
