@@ -27,7 +27,7 @@
 
 ```
 - auth : local , jwt (Done)
-- posts : save , unsave , share (Done) , like , dislike , comment , 
+- posts : save , unsave , share (Done) , like , dislike , comment and much more, 
 - users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
 - comments : add , edit , delete , like and dislike others comments
 - me : profile , edit profile , change password , delete account forever , activate and 
