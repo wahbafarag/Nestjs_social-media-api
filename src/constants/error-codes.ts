@@ -130,4 +130,24 @@ export const ErrorCodes = {
     code: 'POST_UNSAVED',
     message: 'Post unsaved successfully',
   },
+
+  REJECT_POST_EDIT: {
+    code: 'REJECT_POST_EDIT',
+    message: 'You are not allowed to edit this post',
+  },
+
+  POST_NOT_FOUND: {
+    code: 'POST_NOT_FOUND',
+    message: 'Post not found',
+  },
+
+  POST_DELETED: {
+    code: 'POST_DELETED',
+    message: 'Post deleted successfully',
+  },
+
+  POSTS_DELETED: {
+    code: 'POSTS_DELETED',
+    message: 'Posts deleted successfully',
+  },
 };

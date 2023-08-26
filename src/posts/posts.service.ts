@@ -6,6 +6,7 @@ import { SavePostDto } from './dtos/save-post.dto';
 import { ErrorCodes } from '../constants/error-codes';
 import { UsersService } from '../users/users.service';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
+import { UpdatePostDto } from './dtos/update-post.dto';
 
 @Injectable()
 export class PostsService {
@@ -49,5 +50,51 @@ export class PostsService {
       { $pull: { savedPosts: body.postId } },
     );
     return ErrorCodes.POST_UNSAVED;
+  }
+
+  async FindOneById(id: string) {
+    return this.postsRepository.FindOne({ _id: id });
+  }
+
+  async FindMany(userId: string) {
+    return this.postsRepository.FindMany({ user: userId });
+  }
+
+  async FindManyByUserIds(userIds: any) {
+    return this.postsRepository.FindMany({ user: { $in: userIds } });
+  }
+
+  async FindManyBySavedPostIds(savedPostIds: any[]) {
+    return this.postsRepository.FindMany({ _id: { $in: savedPostIds } });
+  }
+
+  async FindManyBySavedPostIdsAndUserId(savedPostIds: any[], userId: string) {
+    return this.postsRepository.FindMany({
+      _id: { $in: savedPostIds },
+      user: userId,
+    });
+  }
+
+  async FindManyBySavedPostIdsAndUserIds(savedPostIds: any[], userIds: any[]) {
+    return this.postsRepository.FindMany({
+      _id: { $in: savedPostIds },
+      user: { $in: userIds },
+    });
+  }
+
+  async findByIdAndUpdate(postId: string, data: UpdatePostDto, userId: any) {
+    const post = await this.postsRepository.FindOne({ _id: postId });
+    if (!post) return ErrorCodes.POST_NOT_FOUND;
+
+    if (post.user.toString() !== userId._id.toString())
+      return ErrorCodes.REJECT_POST_EDIT;
+    return this.postsRepository.FindOneAndUpdate({ _id: postId }, data);
+  }
+
+  async findByIdAndDelete(id: string) {
+    if (!(await this.postsRepository.FindOneAndDelete({ _id: id })))
+      return ErrorCodes.POST_NOT_FOUND;
+    await this.postsRepository.FindOneAndDelete({ _id: id });
+    return ErrorCodes.POST_DELETED;
   }
 }
