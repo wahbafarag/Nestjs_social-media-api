@@ -15,6 +15,10 @@ function commentsCount(): number {
   return this.comments ? this.comments.length : 0;
 }
 
+function likesCount(): number {
+  return this.whoLiked ? this.whoLiked.length : 0;
+}
+
 @Schema()
 export class Post {
   @Prop({ type: Content, required: true })
@@ -32,14 +36,14 @@ export class Post {
   @Prop({ type: Date })
   deletedAt?: Date;
 
-  @Prop({ type: Number, default: 0 })
-  sharesCount?: number;
-
-  @Prop({
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    default: [],
-  })
-  whoShared?: Post[];
+  // @Prop({ type: Number, default: 0 })
+  // sharesCount?: number;
+  //
+  // @Prop({
+  //   type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  //   default: [],
+  // })
+  // whoShared?: Post[];
 
   @Prop({
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
@@ -47,17 +51,17 @@ export class Post {
   })
   whoLiked?: Post[];
 
-  @Prop({ type: Number, default: 0 })
+  @Prop({ type: Number, default: likesCount })
   likes?: number;
 
-  @Prop({
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    default: [],
-  })
-  whoDisliked?: Post[];
+  // @Prop({
+  //   type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  //   default: [],
+  // })
+  // whoDisliked?: Post[];
 
-  @Prop({ type: Number, default: 0 })
-  dislikes?: number;
+  // @Prop({ type: Number, default: 0 })
+  // dislikes?: number;
 
   @Prop({
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
