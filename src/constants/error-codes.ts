@@ -150,4 +150,30 @@ export const ErrorCodes = {
     code: 'POSTS_DELETED',
     message: 'Posts deleted successfully',
   },
+
+  COMMENT_NOT_FOUND: {
+    code: 'COMMENT_NOT_FOUND',
+    message: 'Comment not found',
+  },
+
+  POST_HAS_NO_COMMENTS: {
+    code: 'POST_HAS_NO_COMMENTS',
+    message: 'This post has no comments , be the first to comment?',
+  },
+
+  COMMENT_DELETED: {
+    code: 'COMMENT_DELETED',
+    message: 'Comment deleted successfully',
+  },
+
+  REJECT_COMMENT_EDIT: {
+    code: 'REJECT_COMMENT_EDIT',
+    message: 'You are not allowed to edit this comment , You are not the owner',
+  },
+
+  REJECT_COMMENT_DELETE: {
+    code: 'REJECT_COMMENT_DELETE',
+    message:
+      'You are not allowed to delete this comment , You are not the owner',
+  },
 };

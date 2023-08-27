@@ -54,6 +54,12 @@ export class Post {
 
   @Prop({ type: Number, default: 0 })
   dislikes?: number;
+
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+    default: [],
+  })
+  comments?: Comment[];
 }
 
 export const postSchema = SchemaFactory.createForClass(Post);

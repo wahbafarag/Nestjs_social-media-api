@@ -9,6 +9,7 @@ import * as process from 'process';
 import { ConfigModule } from '@nestjs/config';
 import { OtpModule } from './otp/otp.module';
 import { PostsModule } from './posts/posts.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { PostsModule } from './posts/posts.module';
     MailModule,
     OtpModule,
     PostsModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

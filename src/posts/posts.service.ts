@@ -97,4 +97,8 @@ export class PostsService {
     await this.postsRepository.FindOneAndDelete({ _id: id });
     return ErrorCodes.POST_DELETED;
   }
+
+  async findOneAndUpdate(id: any, data: any) {
+    return this.postsRepository.FindOneAndUpdate({ _id: id }, data);
+  }
 }
