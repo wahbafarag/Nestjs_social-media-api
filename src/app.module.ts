@@ -10,6 +10,7 @@ import { ConfigModule } from '@nestjs/config';
 import { OtpModule } from './otp/otp.module';
 import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
+import { LikesModule } from './likes/likes.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CommentsModule } from './comments/comments.module';
     OtpModule,
     PostsModule,
     CommentsModule,
+    LikesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -11,6 +11,10 @@ export class Content {
   image?: string;
 }
 
+function commentsCount(): number {
+  return this.comments ? this.comments.length : 0;
+}
+
 @Schema()
 export class Post {
   @Prop({ type: Content, required: true })
@@ -60,15 +64,12 @@ export class Post {
     default: [],
   })
   comments?: Comment[];
+
+  @Prop({ type: Number, default: commentsCount })
+  commentCount?: number;
 }
 
 export const postSchema = SchemaFactory.createForClass(Post);
-
-// @Prop({ type: [String] })
-// comments?: string[];
-//
-// @Prop({ type: Number, default: 0 })
-// commentsCount?: number;
 
 // @Prop({ type: Boolean, default: false })
 // isDeleted?: boolean;
