@@ -37,7 +37,7 @@
 - will try to add messages and notifications later 'sockets'
 - mails : when new user register "welcome & verification" , reset password process (done)
 
-LET'SSSSSSSSSSSSSSSSSSSSSSSS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+I could be wrong about the way my features goes or built  BUT it's just an effort to make things go the right way!
 ```
 
 ## Installation
