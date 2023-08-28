@@ -14,4 +14,8 @@ export class LikesRepository {
   async unlikePost(data: any) {
     return this.likeModel.deleteOne(data);
   }
+
+  async findOne(selector: any) {
+    return this.likeModel.findOne(selector);
+  }
 }

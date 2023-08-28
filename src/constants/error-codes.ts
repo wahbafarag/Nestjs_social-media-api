@@ -176,4 +176,14 @@ export const ErrorCodes = {
     message:
       'You are not allowed to delete this comment , You are not the owner',
   },
+
+  ALREADY_LIKED: {
+    code: 'ALREADY_LIKED',
+    message: 'You already liked this post',
+  },
+
+  NOT_LIKED: {
+    code: 'NOT_LIKED',
+    message: 'You did not like this post',
+  },
 };

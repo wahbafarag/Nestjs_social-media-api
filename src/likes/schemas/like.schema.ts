@@ -15,3 +15,4 @@ export class Like {
 }
 
 export const likeSchema = SchemaFactory.createForClass(Like);
+likeSchema.index({ userId: 1, postId: 1 }, { unique: true });

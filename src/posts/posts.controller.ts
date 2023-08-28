@@ -143,4 +143,9 @@ export class PostsController {
   async deletePost(@Param('id', ParseIdPipe) postId: string) {
     return this.postsService.findByIdAndDelete(postId);
   }
+
+  @Get('Beard/all-posts')
+  findAll() {
+    return this.postsService.findAll();
+  }
 }

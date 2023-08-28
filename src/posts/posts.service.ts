@@ -53,7 +53,7 @@ export class PostsService {
   }
 
   async FindOneById(id: string) {
-    return this.postsRepository.FindOne({ _id: id });
+    return await this.postsRepository.FindOne({ _id: id });
   }
 
   async FindMany(userId: string) {
@@ -100,5 +100,9 @@ export class PostsService {
 
   async findOneAndUpdate(id: any, data: any) {
     return this.postsRepository.FindOneAndUpdate({ _id: id }, data);
+  }
+
+  async findAll() {
+    return this.postsRepository.FindMany({});
   }
 }
