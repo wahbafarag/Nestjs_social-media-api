@@ -186,4 +186,30 @@ export const ErrorCodes = {
     code: 'NOT_LIKED',
     message: 'You did not like this post',
   },
+
+  CANNOT_ADD_YOURSELF: {
+    code: 'CANNOT_ADD_YOURSELF',
+    message: 'You cannot add yourself',
+  },
+  ALREADY_FRIENDS: {
+    code: 'ALREADY_FRIENDS',
+    message: 'You are already friends',
+  },
+  FRIEND_ADDED: {
+    code: 'FRIEND_ADDED',
+    message: 'Friend added successfully',
+  },
+
+  CANNOT_REMOVE_YOURSELF: {
+    code: 'CANNOT_REMOVE_YOURSELF',
+    message: 'You cannot remove yourself',
+  },
+  FRIEND_REMOVED: {
+    code: 'FRIEND_REMOVED',
+    message: 'Friend removed successfully',
+  },
+  NOT_FRIENDS: {
+    code: 'NOT_FRIENDS',
+    message: 'You are not friends',
+  },
 };

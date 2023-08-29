@@ -11,6 +11,7 @@ import { OtpModule } from './otp/otp.module';
 import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
 import { LikesModule } from './likes/likes.module';
+import { FriendsModule } from './friends/friends.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { LikesModule } from './likes/likes.module';
     PostsModule,
     CommentsModule,
     LikesModule,
+    FriendsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

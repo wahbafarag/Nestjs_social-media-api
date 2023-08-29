@@ -188,4 +188,8 @@ export class UsersService {
       throw new InternalServerErrorException(ErrorCodes.UNEXPECTED_ERROR);
     }
   }
+
+  async FindAll(filter?: any): Promise<User[]> {
+    return await this.usersRepository.FindAll(filter);
+  }
 }

@@ -27,4 +27,8 @@ export class UsersRepository {
   Delete(selector: any): Promise<User> {
     return this.usersModel.findOneAndDelete(selector);
   }
+
+  FindAll(filter?: any): Promise<User[]> {
+    return this.usersModel.find(filter);
+  }
 }

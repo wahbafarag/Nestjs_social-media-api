@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { Post } from '../../posts/schemas/post.schema';
+import { Friends } from '../../friends/schemas/friend.schema';
 
 export enum UserRoles {
   USER = 'user',
@@ -82,6 +83,12 @@ export class User {
     default: [],
   })
   savedPosts: Post[];
+
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Friends' }],
+    default: [],
+  })
+  friends: Friends[];
 
   async save() {
     await this.save();

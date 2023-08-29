@@ -186,4 +186,9 @@ export class UsersController {
     if (await this.usersService.delete(email)) return ErrorCodes.USER_DELETED;
     throw new InternalServerErrorException(ErrorCodes.UNEXPECTED_ERROR);
   }
+
+  @Get('all-users')
+  FindAll() {
+    return this.usersService.FindAll();
+  }
 }
