@@ -27,7 +27,10 @@ export class PostsService {
   async savePost(
     payload: SavePostDto,
     user: any,
-  ): Promise<{ code: string; message: string }> {
+  ): Promise<{
+    code: string;
+    message: string;
+  }> {
     await this.usersService.findOneAndUpdate(
       { _id: user._id },
       { $push: { savedPosts: payload.postId } },
@@ -44,7 +47,10 @@ export class PostsService {
   async unSavePost(
     @Body(ValidationPipe) body: SavePostDto,
     @CurrentUser() user: any,
-  ): Promise<{ code: string; message: string }> {
+  ): Promise<{
+    code: string;
+    message: string;
+  }> {
     await this.usersService.findOneAndUpdate(
       { _id: user._id },
       { $pull: { savedPosts: body.postId } },
@@ -102,7 +108,7 @@ export class PostsService {
     return this.postsRepository.FindOneAndUpdate({ _id: id }, data);
   }
 
-  async findAll() {
-    return this.postsRepository.FindMany({});
+  async findAll(selector?: any): Promise<any[]> {
+    return await this.postsRepository.FindMany(selector);
   }
 }

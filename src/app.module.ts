@@ -12,6 +12,7 @@ import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
 import { LikesModule } from './likes/likes.module';
 import { FriendsModule } from './friends/friends.module';
+import { SearchModule } from './search/search.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { FriendsModule } from './friends/friends.module';
     CommentsModule,
     LikesModule,
     FriendsModule,
+    SearchModule,
   ],
   controllers: [AppController],
   providers: [AppService],

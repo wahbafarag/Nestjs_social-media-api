@@ -17,6 +17,10 @@ export class PostsRepository {
     return this.postsModel.findOne(selector);
   }
 
+  // async findAll(selector?: any) {
+  //   return this.postsModel.find(selector);
+  // }
+
   async FindOneAndUpdate(selector: any, data: any) {
     return this.postsModel.findOneAndUpdate(selector, data, {
       new: true,
@@ -28,8 +32,8 @@ export class PostsRepository {
     return this.postsModel.findOneAndDelete(selector);
   }
 
-  async FindMany(selector: any) {
-    return this.postsModel.find(selector);
+  async FindMany(selector?: any) {
+    return this.postsModel.find(selector).populate('user');
   }
 
   async FindManyAndDelete(selector: any) {
