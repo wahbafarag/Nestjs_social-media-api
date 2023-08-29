@@ -27,8 +27,8 @@
 
 ```
 - auth : local , jwt (Done)
-- posts : save , unsave , share , comment(Done) , like , reply on comment  and much more, 
-- users "friends" : add , remove , block and unblock (not sure about that but let's find it out)
+- posts : save , unsave , share , comment , like , unlike post (Done)  , reply on comment  and much more, 
+- users "friends" : add , remove 
 - comments : add , edit , delete(done) , like others comments
 - me : profile , edit profile , change password , delete account forever , activate and 
     deactivate account for period of time (Done)
@@ -37,7 +37,7 @@
 - will try to add messages and notifications later 'sockets'
 - mails : when new user register "welcome & verification" , reset password process (done)
 
-LET'SSSSSSSSSSSSSSSSSSSSSSSS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+I could be wrong about the way my features goes or built  BUT it's just an effort to make things go the right way!
 ```
 
 ## Installation
