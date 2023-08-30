@@ -27,12 +27,13 @@
 
 ```
 - auth : local , jwt (Done)
-- posts : save , unsave , share , comment , like , unlike post (Done)  , reply on comment  and much more, 
-- users "friends" : add , remove 
-- comments : add , edit , delete(done) , like others comments
+- posts : save , unsave , share , comment , like , unlike post (Done) 
+- users "friends" : add , remove (done)
+- comments : add , edit , delete(done)
 - me : profile , edit profile , change password , delete account forever , activate and 
     deactivate account for period of time (Done)
-- image uploads : profile (lets see if i can do it for posts and comments too or not)
+- follow , unfollow (done)
+- image uploads : profile 
 
 - will try to add messages and notifications later 'sockets'
 - mails : when new user register "welcome & verification" , reset password process (done)
