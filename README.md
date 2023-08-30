@@ -32,7 +32,7 @@
 - comments : add , edit , delete(done)
 - me : profile , edit profile , change password , delete account forever , activate and 
     deactivate account for period of time (Done)
-- follow , unfollow (done)
+- follow , unfollow other users (done)
 - image uploads : profile 
 
 - will try to add messages and notifications later 'sockets'
