@@ -212,4 +212,21 @@ export const ErrorCodes = {
     code: 'NOT_FRIENDS',
     message: 'You are not friends',
   },
+  FOLLOW_SUCCESS: {
+    code: 'FOLLOW_SUCCESS',
+    message: 'Followed successfully',
+  },
+
+  UNFOLLOW_SUCCESS: {
+    code: 'UNFOLLOW_SUCCESS',
+    message: 'Unfollowed successfully',
+  },
+  USER_ALREADY_FOLLOWED: {
+    code: 'USER_ALREADY_FOLLOWED',
+    message: 'You already followed this user',
+  },
+  USER_NOT_FOLLOWED: {
+    code: 'USER_NOT_FOLLOWED',
+    message: 'You did not follow this user',
+  },
 };

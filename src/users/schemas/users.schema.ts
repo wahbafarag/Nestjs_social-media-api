@@ -90,6 +90,18 @@ export class User {
   })
   friends: Friends[];
 
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    default: [],
+  })
+  followers: User[];
+
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    default: [],
+  })
+  following: User[];
+
   async save() {
     await this.save();
   }
