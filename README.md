@@ -23,23 +23,20 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## What iam trying to do
 
-```
-- auth : local , jwt (Done)
-- posts : save , unsave , share , comment , like , unlike post (Done) 
-- users "friends" : add , remove (done)
-- comments : add , edit , delete(done)
-- me : profile , edit profile , change password , delete account forever , activate and 
-    deactivate account for period of time (Done)
-- follow , unfollow other users (done)
-- image uploads : profile 
+## Features
 
-- will try to add messages 
-- mails : when new user register "welcome & verification" , reset password process (done)
+* Auth : Jwt , Local
+* Posts : Share , Save , Unsave , Comment , Edit , Delete
+* Like : Like , Unlike posts
+* Friends : Add , Remove
+* Comments : Comment on Posts , Edit , Delete
+* Follow : Follow and Unfollow others
+* Search : Search to add or follow users or to find specific posts
+* Me : Get-Profile , Edit Profile , Forgot-Reset Password , Delete account , Activate and Deactivate account
+* Mails : Welcome email after Signup with a token to verify ur account , Forgot-Reset password email with Token
+* Chats : Sending message to specific user , getting all messages -> Unfortunately its still not complete 
 
-I could be wrong about the way my features goes or built  BUT it's just an effort to make things go the right way!
-```
 
 ## Installation
 
