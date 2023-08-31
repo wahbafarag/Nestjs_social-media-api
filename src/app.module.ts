@@ -14,6 +14,7 @@ import { LikesModule } from './likes/likes.module';
 import { FriendsModule } from './friends/friends.module';
 import { SearchModule } from './search/search.module';
 import { FollowModule } from './follow/follow.module';
+import { ChatsModule } from './chats/chats.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { FollowModule } from './follow/follow.module';
     FriendsModule,
     SearchModule,
     FollowModule,
+    ChatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
