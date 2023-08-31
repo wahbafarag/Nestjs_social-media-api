@@ -100,4 +100,14 @@ export class AuthService {
     const token = await signToken(user, this.jwtService);
     return { token, user };
   }
+
+  async authUserToken(token: string) {
+    const user = await this.jwtService.verifyAsync(token, {
+      secret: 'LAZktM39ju2PoacfmlRtJAeX65APQfJGkV1Qnw',
+    });
+    if (!user) {
+      throw new BadRequestException(ErrorCodes.INVALID_CREDENTIALS);
+    }
+    return user;
+  }
 }

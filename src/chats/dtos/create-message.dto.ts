@@ -1,4 +1,5 @@
 import { IsEmpty, IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { User } from '../../users/schemas/users.schema';
 
 export class CreateMessageDto {
   @IsString()
@@ -6,9 +7,9 @@ export class CreateMessageDto {
   text: string;
 
   @IsEmpty() // comes from current user
-  sender: string;
+  sender: User;
 
   @IsNotEmpty()
   @IsMongoId()
-  receiver: string;
+  receiver: User;
 }
